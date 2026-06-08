@@ -80,3 +80,57 @@ html {
   background: var(--color-primary);
   opacity: 0.8;
 }
+
+@keyframes float-puzzle {
+  0%,
+  100% {
+    transform: translateY(0) scale(0.8);
+  }
+  50% {
+    transform: translateY(-30px) scale(1);
+  }
+}
+
+@keyframes orbit-clockwise {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counterclockwise {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+}
+
+@keyframes rotate-square {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes pulse-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}

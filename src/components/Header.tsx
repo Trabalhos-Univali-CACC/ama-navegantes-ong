@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 import { Heart } from "lucide-react";
 import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
 
 import logo from "@/../public/imgs/ama_logo.png";
 
@@ -22,6 +22,14 @@ const navItems = [
 
 export function Header() {
    const [isScrolled, setIsScrolled] = useState(false);
+
+   useEffect(() => {
+      const handleScroll = () => {
+         setIsScrolled(window.scrollY > 50);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+   }, []);
 
    return (
       <header>
