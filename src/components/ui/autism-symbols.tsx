@@ -40,10 +40,10 @@ export function InfinitySymbol({
     >
       <defs>
         <linearGradient id="autismGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="var(--color-autism-blue)" />
-          <stop offset="33%" stopColor="var(--color-autism-yellow)" />
-          <stop offset="66%" stopColor="var(--color-autism-red)" />
-          <stop offset="100%" stopColor="var(--color-autism-green)" />
+          <stop offset="0%" className="text-autism-blue" />
+          <stop offset="33%" className="text-autism-yellow" />
+          <stop offset="66%" className="text-autism-red" />
+          <stop offset="100%" className="text-autism-green" />
         </linearGradient>
       </defs>
       <path
@@ -179,7 +179,7 @@ export function PuzzleDivider() {
   return (
     <div className="flex items-center justify-center py-8">
       <div className="flex items-center gap-3">
-        <div className="h-px w-16 bg-gradient-to-r from-transparent to-autism-blue/50 sm:w-24" />
+        <div className="h-px w-16 bg-linear-to-r from-transparent to-autism-blue/50 sm:w-24" />
         {colors.map((color, i) => (
           <div
             key={i}
@@ -189,7 +189,7 @@ export function PuzzleDivider() {
             }}
           />
         ))}
-        <div className="h-px w-16 bg-gradient-to-l from-transparent to-autism-green/50 sm:w-24" />
+        <div className="h-px w-16 bg-linear-to-l from-transparent to-autism-green/50 sm:w-24" />
       </div>
     </div>
   );

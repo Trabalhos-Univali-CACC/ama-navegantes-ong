@@ -1,5 +1,5 @@
 import { Target, Eye, Heart, Users, Lightbulb, Shield } from "lucide-react";
-import { PuzzleDivider, PuzzlePiece } from "./ui/autismSymbols";
+import { PuzzleDivider, PuzzlePiece } from "./ui/autism-symbols";
 
 const values = [
    {

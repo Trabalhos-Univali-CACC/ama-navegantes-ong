@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { PuzzlePiece } from "./ui/autismSymbols";
-import { PuzzleBackground } from "./ui/puzzleBackground";
+import { PuzzlePiece } from "./ui/autism-symbols";
+import { PuzzleBackground } from "./ui/puzzle-background";
 import { ArrowDown, Calendar, Heart, Users } from "lucide-react";
 
 const info = [
