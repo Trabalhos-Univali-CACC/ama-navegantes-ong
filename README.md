@@ -1,4 +1,4 @@
-# AMA Navegantes — Site Institucional
+# AMA Navegantes - Site Institucional
 
 Site de divulgação e informação da **AMA de Navegantes**, uma ONG dedicada ao apoio a pessoas com autismo e suas famílias.
 
