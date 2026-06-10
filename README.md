@@ -42,10 +42,10 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar
 
 ## Scripts disponíveis
 
-- `npm run dev` — inicia o ambiente de desenvolvimento
-- `npm run build` — gera a build de produção
-- `npm run start` — executa a build de produção
-- `npm run lint` — verifica o código com o ESLint
+- `npm run dev` - inicia o ambiente de desenvolvimento
+- `npm run build` - gera a build de produção
+- `npm run start` - executa a build de produção
+- `npm run lint` - verifica o código com o ESLint
 
 ## Estrutura do projeto
 
