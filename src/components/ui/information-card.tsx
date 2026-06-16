@@ -1,10 +1,10 @@
 import { ChevronDown, type LucideIcon } from "lucide-react";
 
 const autismColors = [
-   "bg-autism-blue",
-   "bg-autism-yellow",
-   "bg-autism-red",
-   "bg-autism-green",
+   "bg-chart-1",
+   "bg-chart-2",
+   "bg-chart-3",
+   "bg-chart-4",
 ];
 
 export interface InfoItem {

@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { PuzzlePiece } from "./ui/autism-symbols";
-import { PuzzleBackground } from "./ui/puzzle-background";
+import { PuzzleBackground, PuzzlePiece } from "./ui/autism-symbols";
 import { ArrowDown, Calendar, Heart, Users } from "lucide-react";
 
 const info = [
-   { icon: Calendar, value: "2016", label: "Fundação", color: "bg-autism-blue" },
-   { icon: Users, value: "500+", label: "Famílias Atendidas", color: "bg-autism-yellow" },
-   { icon: Heart, value: "8", label: "Anos de Atuação", color: "bg-autism-green" },
+   { icon: Calendar, value: "2016", label: "Fundação", color: "bg-chart-1" },
+   { icon: Users, value: "500+", label: "Famílias Atendidas", color: "bg-chart-2" },
+   { icon: Heart, value: "8", label: "Anos de Atuação", color: "bg-chart-4" },
 ];
 
 export function Banner() {
@@ -67,16 +66,16 @@ export function Banner() {
                            style={{ animation: "orbit-clockwise 60s linear infinite" }}
                         >
                            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                              <PuzzlePiece size={24} className="text-autism-blue" />
+                              <PuzzlePiece size={24} className="text-chart-1" />
                            </div>
                            <div className="absolute top-1/2 -right-3 -translate-y-1/2">
-                              <PuzzlePiece size={24} className="text-autism-yellow" />
+                              <PuzzlePiece size={24} className="text-chart-2" />
                            </div>
                            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
-                              <PuzzlePiece size={24} className="text-autism-red" />
+                              <PuzzlePiece size={24} className="text-chart-3" />
                            </div>
                            <div className="absolute top-1/2 -left-3 -translate-y-1/2">
-                              <PuzzlePiece size={24} className="text-autism-green" />
+                              <PuzzlePiece size={24} className="text-chart-4" />
                            </div>
                         </div>
                         <div

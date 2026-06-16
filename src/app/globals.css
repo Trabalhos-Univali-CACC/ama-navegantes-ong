@@ -3,7 +3,6 @@
 @theme {
   --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
   --font-serif: "Playfair Display", "Georgia", serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
 
   --radius: 0.75rem;
   --radius-sm: calc(var(--radius) - 4px);
@@ -14,9 +13,6 @@
   --color-background: #f6f9fc;
   --color-foreground: #07121e;
   --color-card: #ffffff;
-  --color-card-foreground: var(--color-foreground);
-  --color-popover: var(--color-card);
-  --color-popover-foreground: var(--color-foreground);
   --color-primary: #0044a2;
   --color-primary-foreground: #fcfcfc;
   --color-secondary: #e0f1ff;
@@ -26,7 +22,6 @@
   --color-accent: #cce8ff;
   --color-accent-foreground: #002e5d;
   --color-destructive: #d40924;
-  --color-destructive-foreground: #f8f8f8;
   --color-border: #d4dfeb;
   --color-input: #e7f0f8;
   --color-ring: var(--color-primary);
@@ -34,19 +29,6 @@
   --color-chart-2: #f3cb00;
   --color-chart-3: #d40924;
   --color-chart-4: #1c882d;
-  --color-chart-5: #2784d5;
-  --color-autism-blue: var(--color-primary);
-  --color-autism-yellow: var(--color-chart-2);
-  --color-autism-red: var(--color-chart-3);
-  --color-autism-green: var(--color-chart-4);
-  --color-sidebar: #f0f6fc;
-  --color-sidebar-foreground: var(--color-foreground);
-  --color-sidebar-primary: var(--color-primary);
-  --color-sidebar-primary-foreground: var(--color-primary-foreground);
-  --color-sidebar-accent: #ddedff;
-  --color-sidebar-accent-foreground: var(--color-secondary-foreground);
-  --color-sidebar-border: var(--color-border);
-  --color-sidebar-ring: var(--color-ring);
 }
 
 @layer base {

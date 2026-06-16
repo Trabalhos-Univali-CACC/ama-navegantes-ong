@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { InformationCard } from "./ui/information-card";
-import { PuzzlePiece, InfinitySymbol } from "./ui/autism-symbols";
 import { Clock, MapPin, FileText, Calendar, HelpCircle, Phone } from "lucide-react";
 
 const infoItems = [

@@ -7,28 +7,28 @@ const values = [
       title: "Acolhimento",
       description:
          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
-      color: "bg-autism-blue",
+      color: "bg-chart-1",
    },
    {
       icon: Users,
       title: "Inclusão",
       description:
          "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-      color: "bg-autism-yellow",
+      color: "bg-chart-2",
    },
    {
       icon: Lightbulb,
       title: "Conscientização",
       description:
          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
-      color: "bg-autism-red",
+      color: "bg-chart-3",
    },
    {
       icon: Shield,
       title: "Respeito",
       description:
          "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-      color: "bg-autism-green",
+      color: "bg-chart-4",
    },
 ];
 

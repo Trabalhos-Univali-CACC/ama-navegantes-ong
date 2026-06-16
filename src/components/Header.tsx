@@ -34,10 +34,10 @@ export function Header() {
    return (
       <header>
          <div className="fixed top-0 left-0 right-0 z-50 flex h-1">
-            <div className="flex-1 bg-autism-blue" />
-            <div className="flex-1 bg-autism-yellow" />
-            <div className="flex-1 bg-autism-red" />
-            <div className="flex-1 bg-autism-green" />
+            <div className="flex-1 bg-chart-1" />
+            <div className="flex-1 bg-chart-2" />
+            <div className="flex-1 bg-chart-3" />
+            <div className="flex-1 bg-chart-4" />
          </div>
          <div className={cn("fixed top-1 left-0 right-0 z-50 transition-all",
             isScrolled ? "bg-card/95 backdrop-blur-md shadow-sm" : "bg-transparent")}>
