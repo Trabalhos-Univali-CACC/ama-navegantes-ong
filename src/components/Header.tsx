@@ -15,8 +15,8 @@ const navItems = [
    { label: "Quem Somos", href: "#quem-somos" },
    { label: "Equipe", href: "#equipe" },
    { label: "Informações", href: "#informacoes" },
-   { label: "Parcerias", href: "#parcerias" },
    { label: "Carteirinha", href: "#carteirinha" },
+   { label: "Doações", href: "#doacoes" },
    { label: "Contato", href: "#contato" },
 ]
 
