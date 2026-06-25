@@ -5,8 +5,8 @@ import { ArrowDown, Calendar, Heart, Users } from "lucide-react";
 
 const info = [
    { icon: Calendar, value: "2016", label: "Fundação", color: "bg-chart-1" },
-   { icon: Users, value: "500+", label: "Famílias Atendidas", color: "bg-chart-2" },
-   { icon: Heart, value: "8", label: "Anos de Atuação", color: "bg-chart-4" },
+   { icon: Users, value: "230", label: "Educandos Atendidos", color: "bg-chart-2" },
+   { icon: Heart, value: "10", label: "Anos de Atuação", color: "bg-chart-4" },
 ];
 
 export function Banner() {

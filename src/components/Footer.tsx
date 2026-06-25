@@ -62,8 +62,9 @@ export function Footer() {
                      </div>
                   </Link>
                   <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                     Organização da sociedade civil, sem fins lucrativos, que atua há
+                     mais de dez anos no atendimento especializado a pessoas com
+                     Transtorno do Espectro Autista (TEA) em Navegantes/SC.
                   </p>
 
                   <div className="mt-6 flex gap-3">

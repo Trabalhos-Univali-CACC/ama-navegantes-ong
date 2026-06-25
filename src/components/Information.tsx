@@ -9,31 +9,31 @@ const infoItems = [
       icon: Clock,
       title: "Horário de Funcionamento",
       content:
-         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Segunda a Sexta: 8h às 18h. Sábados: 8h às 12h.",
+         "Os atendimentos são realizados de segunda a sexta-feira na sede da instituição. Entre em contato para confirmar os horários disponíveis. [Horário a confirmar]",
    },
    {
       icon: MapPin,
       title: "Localização",
       content:
-         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Endereço: Rua Lorem Ipsum, 123 - Centro, Navegantes/SC.",
+         "Av. Prefeito José Juvenal Mafra, nº 98 – Centro – Navegantes/SC – CEP 88370-094. A sede dispõe de estrutura acessível, salas de atendimento, espaços pedagógicos e áreas de convivência.",
    },
    {
       icon: FileText,
       title: "Documentação Necessária",
       content:
-         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Documentos: RG, CPF, Comprovante de residência, Laudo médico.",
+         "No acolhimento institucional são realizados o cadastro, a análise documental e a entrevista inicial com a família. Leve os documentos pessoais, o comprovante de residência e o laudo ou relatório médico.",
    },
    {
       icon: Calendar,
-      title: "Agendamentos",
+      title: "Agendamentos e Ingresso",
       content:
-         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Agendamentos podem ser feitos por telefone ou presencialmente.",
+         "O ingresso dos usuários ocorre mediante encaminhamento pelo setor de regulação da Secretaria Municipal de Saúde, seguido de acolhimento institucional, cadastro e entrevista com a família.",
    },
    {
       icon: HelpCircle,
       title: "Dúvidas Frequentes",
       content:
-         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+         "Tem dúvidas sobre os atendimentos, o processo de ingresso ou os serviços oferecidos? Fale com a nossa equipe pelos canais de atendimento da instituição.",
    },
 ];
 
@@ -54,14 +54,16 @@ export function Information() {
                      </span>
                   </h2>
                   <p className="mb-8 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                     eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                     Reunimos aqui as principais informações sobre o funcionamento, a
+                     localização e o ingresso na AMA Navegantes. Se precisar de
+                     orientação, nossa equipe está à disposição para ajudar.
                   </p>
 
                   <div className="rounded-2xl bg-primary p-6 text-primary-foreground">
                      <h3 className="mb-3 font-semibold">Precisa de ajuda imediata?</h3>
                      <p className="mb-4 text-sm opacity-90">
-                        Lorem ipsum dolor sit amet consectetur adipiscing elit.
+                        Fale com a nossa equipe e receba orientação sobre atendimentos,
+                        ingresso e serviços para pessoas com TEA e suas famílias.
                      </p>
                      <a
                         href="tel:+5547999999999"

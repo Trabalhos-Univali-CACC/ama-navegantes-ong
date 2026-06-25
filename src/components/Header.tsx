@@ -16,6 +16,7 @@ const navItems = [
    { label: "Equipe", href: "#equipe" },
    { label: "Informações", href: "#informacoes" },
    { label: "Carteirinha", href: "#carteirinha" },
+   { label: "Parceiros", href: "#parcerias" },
    { label: "Doações", href: "#doacoes" },
    { label: "Contato", href: "#contato" },
 ]

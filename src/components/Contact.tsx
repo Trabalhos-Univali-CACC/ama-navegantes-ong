@@ -11,8 +11,8 @@ const contactInfo = [
    {
       icon: MapPin,
       label: "Endereço",
-      value: "Rua Lorem Ipsum, 123 - Centro, Navegantes/SC",
-      href: "#",
+      value: "Av. Prefeito José Juvenal Mafra, 98 - Centro, Navegantes/SC - CEP 88370-094",
+      href: "https://maps.google.com/?q=Av.+Prefeito+José+Juvenal+Mafra,+98+-+Centro,+Navegantes+SC",
       color: "bg-chart-1",
    },
    {
@@ -70,8 +70,9 @@ export function Contact() {
                   <span className="text-balance">Fale conosco</span>
                </h2>
                <p className="text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Quer conhecer a AMA Navegantes, tirar dúvidas ou apoiar a nossa
+                  causa? Entre em contato pelos nossos canais ou envie uma mensagem.
+                  Teremos prazer em falar com você.
                </p>
             </div>
 

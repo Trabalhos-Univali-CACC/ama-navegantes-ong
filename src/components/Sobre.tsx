@@ -4,30 +4,30 @@ import { PuzzleDivider, PuzzlePiece } from "./ui/autism-symbols";
 const values = [
    {
       icon: Heart,
-      title: "Acolhimento",
+      title: "Humanização",
       description:
-         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+         "Atendimento humanizado e acolhedor, pautado em princípios éticos e no respeito a cada educando e sua família.",
       color: "bg-chart-1",
    },
    {
       icon: Users,
       title: "Inclusão",
       description:
-         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+         "Promoção da inclusão social e educacional das pessoas com TEA, ampliando a participação e a garantia de direitos.",
       color: "bg-chart-2",
    },
    {
       icon: Lightbulb,
-      title: "Conscientização",
+      title: "Valorização das potencialidades",
       description:
-         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
+         "Valorização das potencialidades humanas, estimulando a autonomia e o desenvolvimento das habilidades de cada pessoa.",
       color: "bg-chart-3",
    },
    {
       icon: Shield,
-      title: "Respeito",
+      title: "Respeito às individualidades",
       description:
-         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+         "Respeito às individualidades, à ética profissional e ao compromisso com a responsabilidade social.",
       color: "bg-chart-4",
    },
 ];
@@ -46,9 +46,12 @@ export function Sobre() {
                   </span>
                </h2>
                <p className="text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                  ad minim veniam, quis nostrud exercitation ullamco laboris.
+                  A Associação de Pais e Amigos dos Autistas – AMA Navegantes é uma
+                  organização da sociedade civil, sem fins lucrativos, que atua há mais
+                  de dez anos no município de Navegantes no atendimento especializado a
+                  pessoas com Transtorno do Espectro Autista (TEA). Contamos com uma
+                  equipe multiprofissional qualificada e oferecemos suporte às famílias
+                  e à rede municipal de ensino.
                </p>
             </div>
 
@@ -66,10 +69,10 @@ export function Sobre() {
                         Nossa Missão
                      </h3>
                      <p className="leading-relaxed opacity-90">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.
+                        Promover atendimento especializado e humanizado às pessoas com
+                        Transtorno do Espectro Autista, contribuindo para o
+                        desenvolvimento da autonomia, inclusão social, qualidade de vida
+                        e fortalecimento das potencialidades individuais.
                      </p>
                   </div>
                </div>
@@ -85,10 +88,10 @@ export function Sobre() {
                         Nossa Visão
                      </h3>
                      <p className="leading-relaxed text-muted-foreground">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt
-                        mollit anim id est laborum.
+                        Ser referência no atendimento e desenvolvimento de pessoas com
+                        Transtorno do Espectro Autista, promovendo inclusão, acolhimento
+                        e oportunidades de desenvolvimento pessoal, social e
+                        profissional.
                      </p>
                   </div>
                </div>
