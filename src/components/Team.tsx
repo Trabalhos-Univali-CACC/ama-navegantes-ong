@@ -1,89 +1,58 @@
 import { Mail } from "lucide-react";
+import { imageUrl, type EquipeTexto, type EquipeMembro } from "@/lib/api";
 
 const autismColors = ["bg-chart-1", "bg-chart-2", "bg-chart-3", "bg-chart-4"];
 
-const teamMembers = [
-   {
-      name: "Maria Silva",
-      role: "Presidente",
-      description:
-         "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
-      image: null,
-   },
-   {
-      name: "João Santos",
-      role: "Vice-Presidente",
-      description:
-         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      image: null,
-   },
-   {
-      name: "Ana Oliveira",
-      role: "Coordenadora de Projetos",
-      description:
-         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
-      image: null,
-   },
-   {
-      name: "Carlos Pereira",
-      role: "Psicólogo",
-      description:
-         "Excepteur sint occaecat cupidatat non proident sunt in culpa qui.",
-      image: null,
-   },
-   {
-      name: "Lucia Ferreira",
-      role: "Assistente Social",
-      description:
-         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
-      image: null,
-   },
-   {
-      name: "Pedro Costa",
-      role: "Terapeuta Ocupacional",
-      description:
-         "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit.",
-      image: null,
-   },
-];
-
-export function Team() {
+// O texto da seção e a lista de membros vêm do backend, pelas props.
+export function Team({
+   texto,
+   membros,
+}: {
+   texto: EquipeTexto | null;
+   membros: EquipeMembro[];
+}) {
    return (
       <section id="equipe" className="relative overflow-hidden bg-background py-20 md:py-28">
          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto mb-16 max-w-3xl text-center">
                <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
-                  Nossa Equipe
+                  {texto?.rotulo}
                </span>
                <h2 className="mb-6 font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
-                  <span className="text-balance">
-                     Conheça quem faz a diferença
-                  </span>
+                  <span className="text-balance">{texto?.titulo}</span>
                </h2>
                <p className="text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  {texto?.paragrafo}
                </p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-               {teamMembers.map((i) => (
-                  <div key={i.name} className="group relative overflow-hidden rounded-2xl bg-card p-6 shadow-sm ring-1 ring-border/50 transition-all hover:shadow-xl">
+               {membros.map((membro, index) => (
+                  <div key={membro.id} className="group relative overflow-hidden rounded-2xl bg-card p-6 shadow-sm ring-1 ring-border/50 transition-all hover:shadow-xl">
                      <div className="mb-5 flex items-center gap-4">
                         <div className="relative">
-                           <div className={`flex h-16 w-16 items-center justify-center rounded-full ${autismColors[Math.floor(Math.random() * autismColors.length)]} text-2xl font-serif font-bold text-white`}>
-                              {i.name.charAt(0)}
-                           </div>
+                           {membro.imagemIdentificador ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                 src={imageUrl(membro.imagemIdentificador)}
+                                 alt={membro.nome}
+                                 className="h-16 w-16 rounded-full object-cover"
+                              />
+                           ) : (
+                              <div className={`flex h-16 w-16 items-center justify-center rounded-full ${autismColors[index % autismColors.length]} text-2xl font-serif font-bold text-white`}>
+                                 {membro.nome.charAt(0)}
+                              </div>
+                           )}
                            <div className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-2 border-card bg-green-500" />
                         </div>
                         <div>
                            <h3 className="font-semibold text-foreground">
-                              {i.name}
+                              {membro.nome}
                            </h3>
-                           <p className="text-sm text-primary">{i.role}</p>
+                           <p className="text-sm text-primary">{membro.cargo}</p>
                         </div>
                      </div>
                      <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
-                        {i.description}
+                        {membro.descricao}
                      </p>
                      <div className="flex gap-2">
                         <button className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground">

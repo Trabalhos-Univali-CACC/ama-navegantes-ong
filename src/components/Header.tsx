@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -8,7 +7,7 @@ import { Heart } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 
-import logo from "@/../public/imgs/ama_logo.png";
+import { imageUrl } from "@/lib/api";
 
 const navItems = [
    { label: "Início", href: "#inicio" },
@@ -44,8 +43,10 @@ export function Header() {
             isScrolled ? "bg-card/95 backdrop-blur-md shadow-sm" : "bg-transparent")}>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                <div className="flex h-16 items-center justify-between md:h-20">
-                  <Link href="#Inicio" className="flex items-center gap-2 hover:scale-105 transition-all duration-300">
-                     <Image src={logo} alt="Logo" width={50} height={50} className="rounded-full" />
+                  <Link href="#inicio" className="flex items-center gap-2 hover:scale-105 transition-all duration-300">
+                     {/* A imagem do logo vem do backend (identificador "logo") */}
+                     {/* eslint-disable-next-line @next/next/no-img-element */}
+                     <img src={imageUrl("logo")} alt="Logo" className="h-[50px] w-[50px] rounded-full object-cover" />
                      <div className="hidden sm:block">
                         <p className="font-serif text-lg font-semibold text-foreground">
                            AMA Navegantes

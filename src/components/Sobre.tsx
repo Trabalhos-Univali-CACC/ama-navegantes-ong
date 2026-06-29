@@ -1,5 +1,6 @@
 import { Target, Eye, Heart, Users, Lightbulb, Shield } from "lucide-react";
-import { PuzzleDivider, PuzzlePiece } from "./ui/autism-symbols";
+import { PuzzleDivider } from "./ui/autism-symbols";
+import type { SobreTexto } from "@/lib/api";
 
 const values = [
    {
@@ -32,26 +33,20 @@ const values = [
    },
 ];
 
-export function Sobre() {
+// O texto vem do backend, pela prop "sobre".
+export function Sobre({ sobre }: { sobre: SobreTexto | null }) {
    return (
       <section id="quem-somos" className="relative overflow-hidden bg-card py-20 md:py-28">
          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto mb-16 max-w-3xl text-center">
                <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
-                  Quem Somos
+                  {sobre?.rotulo}
                </span>
                <h2 className="mb-6 font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
-                  <span className="text-balance">
-                     Uma história de amor e dedicação
-                  </span>
+                  <span className="text-balance">{sobre?.titulo}</span>
                </h2>
                <p className="text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  A Associação de Pais e Amigos dos Autistas – AMA Navegantes é uma
-                  organização da sociedade civil, sem fins lucrativos, que atua há mais
-                  de dez anos no município de Navegantes no atendimento especializado a
-                  pessoas com Transtorno do Espectro Autista (TEA). Contamos com uma
-                  equipe multiprofissional qualificada e oferecemos suporte às famílias
-                  e à rede municipal de ensino.
+                  {sobre?.paragrafo}
                </p>
             </div>
 
@@ -69,10 +64,7 @@ export function Sobre() {
                         Nossa Missão
                      </h3>
                      <p className="leading-relaxed opacity-90">
-                        Promover atendimento especializado e humanizado às pessoas com
-                        Transtorno do Espectro Autista, contribuindo para o
-                        desenvolvimento da autonomia, inclusão social, qualidade de vida
-                        e fortalecimento das potencialidades individuais.
+                        {sobre?.missao}
                      </p>
                   </div>
                </div>
@@ -88,10 +80,7 @@ export function Sobre() {
                         Nossa Visão
                      </h3>
                      <p className="leading-relaxed text-muted-foreground">
-                        Ser referência no atendimento e desenvolvimento de pessoas com
-                        Transtorno do Espectro Autista, promovendo inclusão, acolhimento
-                        e oportunidades de desenvolvimento pessoal, social e
-                        profissional.
+                        {sobre?.visao}
                      </p>
                   </div>
                </div>

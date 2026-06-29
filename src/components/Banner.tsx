@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { PuzzleBackground, PuzzlePiece } from "./ui/autism-symbols";
 import { ArrowDown, Calendar, Heart, Users } from "lucide-react";
+import type { BannerTexto } from "@/lib/api";
 
 const info = [
    { icon: Calendar, value: "2016", label: "Fundação", color: "bg-chart-1" },
@@ -9,9 +10,10 @@ const info = [
    { icon: Heart, value: "10", label: "Anos de Atuação", color: "bg-chart-4" },
 ];
 
-export function Banner() {
+// O texto (rótulo, título e parágrafo) vem do backend, pela prop "banner".
+export function Banner({ banner }: { banner: BannerTexto | null }) {
    return (
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-linear-to-br from-background via-background to-accent/20 pt-20 md:pt-24">
+      <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden bg-linear-to-br from-background via-background to-accent/20 pt-20 md:pt-24">
          <PuzzleBackground />
          <div className="relative mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -21,19 +23,13 @@ export function Banner() {
                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
                         <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
                      </span>
-                     Desde 2016 acolhendo famílias
+                     {banner?.rotulo}
                   </div>
                   <h1 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-                     <span className="text-balance">
-                        Acolhimento e{" "}
-                        <span className="text-primary">apoio</span> para pessoas com{" "}
-                        <span className="text-primary">TEA</span>
-                     </span>
+                     <span className="text-balance">{banner?.titulo}</span>
                   </h1>
                   <p className="mx-auto mb-8 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
-                     A AMA Navegantes é dedicada ao acolhimento e apoio de pessoas com
-                     Transtorno do Espectro Autista e suas famílias, promovendo
-                     inclusão, conscientização e um ambiente mais acessível.
+                     {banner?.paragrafo}
                   </p>
                   <div className="flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
                      <Link href="#quem-somos">

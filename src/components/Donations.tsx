@@ -2,8 +2,11 @@
 
 import { QrCode, Heart, Shirt, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import type { DoacoesTexto } from "@/lib/api";
 
-export function Donations() {
+const tags = ["Roupas", "Calçados", "Em bom estado"];
+
+export function Donations({ texto }: { texto: DoacoesTexto | null }) {
    return (
       <section id="doacoes" className="relative overflow-hidden bg-primary py-20 text-primary-foreground md:py-28">
          <div className="absolute inset-0 overflow-hidden">
@@ -15,14 +18,13 @@ export function Donations() {
          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto mb-16 max-w-3xl text-center">
                <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary-foreground/70">
-                  Faça parte
+                  {texto?.rotulo}
                </span>
                <h2 className="mb-6 font-serif text-3xl font-bold sm:text-4xl md:text-5xl">
-                  <span className="text-balance">Doações</span>
+                  <span className="text-balance">{texto?.titulo}</span>
                </h2>
                <p className="text-pretty text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
-                  Sua contribuição ajuda a AMA Navegantes a continuar acolhendo e
-                  apoiando pessoas com TEA e suas famílias. Toda ajuda faz a diferença.
+                  {texto?.paragrafo}
                </p>
             </div>
 
@@ -33,11 +35,10 @@ export function Donations() {
                      Doação via PIX
                   </div>
                   <h3 className="mb-2 font-serif text-2xl font-bold text-foreground">
-                     Você escolhe o valor
+                     {texto?.pixTitulo}
                   </h3>
                   <p className="mb-6 max-w-sm text-pretty text-sm leading-relaxed text-muted-foreground">
-                     Sem valores pré-definidos. Aponte a câmera do seu celular para o
-                     QR Code e doe a quantia que desejar.
+                     {texto?.pixDescricao}
                   </p>
 
                   <div className="flex flex-1 flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed border-border bg-secondary/40 p-8">
@@ -55,15 +56,14 @@ export function Donations() {
                      <Shirt className="h-7 w-7" />
                   </div>
                   <h3 className="mb-4 font-serif text-2xl font-bold">
-                     Doação de roupas e calçados
+                     {texto?.roupasTitulo}
                   </h3>
                   <p className="mb-6 text-pretty text-base leading-relaxed text-primary-foreground/85">
-                     Também temos um projeto de doação de roupas e calçados para as
-                     famílias que são atendidas pela instituição.
+                     {texto?.roupasDescricao}
                   </p>
 
                   <div className="mb-8 flex flex-wrap gap-2">
-                     {["Roupas", "Calçados", "Em bom estado"].map((tag) => (
+                     {tags.map((tag) => (
                         <span
                            key={tag}
                            className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-primary-foreground/90"
@@ -74,7 +74,7 @@ export function Donations() {
                   </div>
 
                   <Button size="lg" className="w-fit gap-2 bg-white text-primary hover:bg-white/90">
-                     Quero doar roupas
+                     {texto?.roupasBotao}
                      <ArrowRight className="h-4 w-4" />
                   </Button>
                </div>

@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Heart, ArrowUp } from "lucide-react";
-import logo from "@/../public/imgs/ama_logo.png";
 import { Facebook, Instagram, Youtube } from "@/type/types";
+import { imageUrl } from "@/lib/api";
 
 const footerLinks = {
    institucional: [
@@ -51,7 +50,8 @@ export function Footer() {
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
                <div className="lg:col-span-2">
                   <Link href="#inicio" className="inline-flex items-center gap-2">
-                     <Image src={logo} alt="Logo" width={50} height={50} className="rounded-full" />
+                     {/* eslint-disable-next-line @next/next/no-img-element */}
+                     <img src={imageUrl("logo")} alt="Logo" className="h-[50px] w-[50px] rounded-full object-cover" />
                      <div>
                         <p className="font-serif text-lg font-semibold text-foreground">
                            AMA Navegantes

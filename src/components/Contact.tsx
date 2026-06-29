@@ -5,38 +5,12 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Facebook, Instagram } from "@/type/types";
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle, } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from "lucide-react";
+import { API_URL, type ContatoTexto, type ContatoInfo } from "@/lib/api";
 
-const contactInfo = [
-   {
-      icon: MapPin,
-      label: "Endereço",
-      value: "Av. Prefeito José Juvenal Mafra, 98 - Centro, Navegantes/SC - CEP 88370-094",
-      href: "https://maps.google.com/?q=Av.+Prefeito+José+Juvenal+Mafra,+98+-+Centro,+Navegantes+SC",
-      color: "bg-chart-1",
-   },
-   {
-      icon: Phone,
-      label: "Telefone",
-      value: "(47) 3333-3333",
-      href: "tel:+554733333333",
-      color: "bg-chart-2",
-   },
-   {
-      icon: Mail,
-      label: "E-mail",
-      value: "contato@amanavegantes.org.br",
-      href: "mailto:contato@amanavegantes.org.br",
-      color: "bg-chart-3",
-   },
-   {
-      icon: Clock,
-      label: "Horário",
-      value: "Seg a Sex: 8h às 18h",
-      href: null,
-      color: "bg-chart-4",
-   },
-];
+// Ícones e cores dos dados de contato, na ordem em que aparecem.
+const icones = [MapPin, Phone, Mail, Clock];
+const cores = ["bg-chart-1", "bg-chart-2", "bg-chart-3", "bg-chart-4"];
 
 const socialLinks = [
    { icon: Instagram, label: "Instagram", href: "#" },
@@ -44,7 +18,13 @@ const socialLinks = [
    { icon: MessageCircle, label: "WhatsApp", href: "#" },
 ];
 
-export function Contact() {
+export function Contact({
+   texto,
+   infos,
+}: {
+   texto: ContatoTexto | null;
+   infos: ContatoInfo[];
+}) {
    const [formState, setFormState] = useState({
       name: "",
       email: "",
@@ -53,10 +33,31 @@ export function Contact() {
       message: "",
    });
 
-   const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
+   // "idle" | "enviando" | "ok" | "erro"
+   const [status, setStatus] = useState<"idle" | "enviando" | "ok" | "erro">("idle");
 
-      console.log(formState);
+   const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setStatus("enviando");
+      try {
+         // Envia a mensagem para o backend (rota pública)
+         const res = await fetch(`${API_URL}/api/mensagens`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+               nome: formState.name,
+               email: formState.email,
+               telefone: formState.phone,
+               assunto: formState.subject,
+               conteudo: formState.message,
+            }),
+         });
+         if (!res.ok) throw new Error("falha ao enviar");
+         setStatus("ok");
+         setFormState({ name: "", email: "", phone: "", subject: "", message: "" });
+      } catch {
+         setStatus("erro");
+      }
    };
 
    return (
@@ -64,43 +65,44 @@ export function Contact() {
          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto mb-16 max-w-3xl text-center">
                <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
-                  Contato
+                  {texto?.rotulo}
                </span>
                <h2 className="mb-6 font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
-                  <span className="text-balance">Fale conosco</span>
+                  <span className="text-balance">{texto?.titulo}</span>
                </h2>
                <p className="text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  Quer conhecer a AMA Navegantes, tirar dúvidas ou apoiar a nossa
-                  causa? Entre em contato pelos nossos canais ou envie uma mensagem.
-                  Teremos prazer em falar com você.
+                  {texto?.paragrafo}
                </p>
             </div>
 
             <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
                <div className="lg:col-span-2">
                   <div className="space-y-6">
-                     {contactInfo.map((item, index) => (
-                        <div key={item.label} className="flex gap-4">
-                           <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${item.color} text-white`}>
-                              <item.icon className="h-5 w-5" />
+                     {infos.map((item, index) => {
+                        const Icone = icones[index % icones.length];
+                        return (
+                           <div key={item.id} className="flex gap-4">
+                              <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${cores[index % cores.length]} text-white`}>
+                                 <Icone className="h-5 w-5" />
+                              </div>
+                              <div>
+                                 <p className="text-sm font-medium text-muted-foreground">
+                                    {item.rotulo}
+                                 </p>
+                                 {item.link ? (
+                                    <a
+                                       href={item.link}
+                                       className="font-medium text-foreground transition-colors hover:text-primary"
+                                    >
+                                       {item.valor}
+                                    </a>
+                                 ) : (
+                                    <p className="font-medium text-foreground">{item.valor}</p>
+                                 )}
+                              </div>
                            </div>
-                           <div>
-                              <p className="text-sm font-medium text-muted-foreground">
-                                 {item.label}
-                              </p>
-                              {item.href ? (
-                                 <a
-                                    href={item.href}
-                                    className="font-medium text-foreground transition-colors hover:text-primary"
-                                 >
-                                    {item.value}
-                                 </a>
-                              ) : (
-                                 <p className="font-medium text-foreground">{item.value}</p>
-                              )}
-                           </div>
-                        </div>
-                     ))}
+                        );
+                     })}
                   </div>
                   <div className="mt-10">
                      <p className="mb-4 text-sm font-medium text-muted-foreground">
@@ -140,7 +142,7 @@ export function Contact() {
                      className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8"
                   >
                      <h3 className="mb-6 font-serif text-xl font-bold text-foreground">
-                        Envie uma mensagem
+                        {texto?.formTitulo}
                      </h3>
 
                      <div className="space-y-5">
@@ -151,7 +153,7 @@ export function Contact() {
                               </label>
                               <Input
                                  value={formState.name}
-                                 onChange={(e: any) =>
+                                 onChange={(e) =>
                                     setFormState({ ...formState, name: e.target.value })
                                  }
                                  placeholder="Seu nome"
@@ -165,7 +167,7 @@ export function Contact() {
                               <Input
                                  type="email"
                                  value={formState.email}
-                                 onChange={(e: any) =>
+                                 onChange={(e) =>
                                     setFormState({ ...formState, email: e.target.value })
                                  }
                                  placeholder="seu@email.com"
@@ -181,7 +183,7 @@ export function Contact() {
                               </label>
                               <Input
                                  value={formState.phone}
-                                 onChange={(e: any) =>
+                                 onChange={(e) =>
                                     setFormState({ ...formState, phone: e.target.value })
                                  }
                                  placeholder="(00) 00000-0000"
@@ -194,7 +196,7 @@ export function Contact() {
                               </label>
                               <Input
                                  value={formState.subject}
-                                 onChange={(e: any) =>
+                                 onChange={(e) =>
                                     setFormState({ ...formState, subject: e.target.value })
                                  }
                                  placeholder="Sobre o que deseja falar?"
@@ -209,7 +211,7 @@ export function Contact() {
                            </label>
                            <Textarea
                               value={formState.message}
-                              onChange={(e: any) =>
+                              onChange={(e) =>
                                  setFormState({ ...formState, message: e.target.value })
                               }
                               placeholder="Escreva sua mensagem aqui..."
@@ -220,11 +222,23 @@ export function Contact() {
                         <Button
                            type="submit"
                            size="lg"
+                           disabled={status === "enviando"}
                            className="w-full gap-2 bg-primary hover:bg-primary/90"
                         >
-                           Enviar mensagem
+                           {status === "enviando" ? "Enviando..." : "Enviar mensagem"}
                            <Send className="h-4 w-4" />
                         </Button>
+
+                        {status === "ok" && (
+                           <p className="text-center text-sm font-medium text-green-600">
+                              Mensagem enviada com sucesso! Em breve entraremos em contato.
+                           </p>
+                        )}
+                        {status === "erro" && (
+                           <p className="text-center text-sm font-medium text-destructive">
+                              Não foi possível enviar. Tente novamente mais tarde.
+                           </p>
+                        )}
                      </div>
                   </form>
                </div>
