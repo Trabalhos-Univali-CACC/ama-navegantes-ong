@@ -7,7 +7,7 @@
 // Endereço do backend. Pode ser trocado criando um arquivo .env.local com:
 //   NEXT_PUBLIC_API_URL=http://localhost:5080
 export const API_URL =
-   process.env.NEXT_PUBLIC_API_URL ?? "http://179.127.190.150:8080";
+   process.env.NEXT_PUBLIC_API_URL ?? "http://179.127.190.150:41080";
 
 // Monta a URL de uma imagem a partir do seu identificador (ex: "logo")
 export function imageUrl(identificador: string) {
